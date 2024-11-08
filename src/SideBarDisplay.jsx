@@ -1,3 +1,6 @@
+import UkFlag from "./Ukflag.svg";
+import down from "./down.svg";
+
 export default function SideBarDisplay({ sideBar, setSideBar }) {
     const titles = [
         "What's New",
