@@ -40,18 +40,19 @@ function App() {
           setSideBar={setSideBar}
         />
       ) : null}
-      {showRibbon && (
-        <div className=" w-full bg-customGrey h-7/100 lg:h-1/30  flex justify-center items-center sm:justify-start ">
-          <div className="">
-            <h1 className="text-white font-serif georgia font-normal text-xs sm:text-sm  sm:ml-64">
+      
+        <div className=" w-full bg-customGrey   flex  justify-center items-center lg:justify-between px-[7vw]">
+          
+            <h1 className="text-white font-serif georgia font-normal py-5 lg:py-1 flex text-xs  lg:text-sm  ">
               Guess what's just landed? Shop the latest arrivals now
             </h1>
-          </div>
+            <h1 className="hidden  text-white font-serif georgia font-normal py-5 lg:py-1  text-xs  lg:text-sm  lg:flex ">Womeswear on NET-A-PORTER</h1>
+         
         </div>
-      )}
+      
 
       <div className=" w-full  sticky top-0">
-        <div className="w-full flex flex-row py-3 sm:py-5  bg-white  ">
+        <div className="w-full flex flex-row py-3 lg:py-5  bg-white  ">
           <div className="basis-1/4  flex items-center  gap-x-4  pl-3 ">
             <button
               onClick={() => {
@@ -71,21 +72,21 @@ function App() {
          
             <IoStarOutline className=" md:hidden" />
           </div>
-          <div className="basis-1/2 flex items-center justify-center  lg:text-4xl lg:tracking-widest lg:font-semibold lg:georgia">
+          <div className="basis-1/2 flex shrink items-center justify-center  lg:text-4xl lg:tracking-widest lg:font-semibold lg:georgia">
           <img src={logo} className="h-4 lg:h-7 justify-center "></img>
           </div>
-          <div className="basis-1/4 flex items-center gap-x-10  sm:justify-end lg:gap-x-5  2xl:justify-start 2xl:gap-x-5">
+          <div className="basis-1/4 flex items-center gap-x-5 justify-end mr-5 lg:justify-center lg:gap-x-5 ">
             <div className=" md:flex md:flex-row md:items-center md:gap-x-2 ">
               <IoIosSearch className="" />
               <span className="hidden md:block  text-gray-600">Search</span>
             </div>
             
-            <img className="h-4 hidden 2xl:block lg:block" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTE2IDB2MTZIMFYweiIvPjxwYXRoIGQ9Ik04LjQ3MiA4LjQ1bC45ODUtLjU5MmEzLjc3IDMuNzcgMCAwMDEuNzI5LTIuMzM4IDMuNzcyIDMuNzcyIDAgMDAtLjQzLTIuODc2QTMuNzcgMy43NyAwIDAwNy41MDIuOEg3LjVhMy43NzMgMy43NzMgMCAwMC0zLjI1NSAxLjg0NCAzLjgwNCAzLjgwNCAwIDAwMS4zIDUuMjE0bC45ODUuNTkyTDEgMTEuNzcyVjE1aDEzdi0zLjIyOUw4LjQ3MiA4LjQ1ek02LjA2IDcuMDAxYTIuODA1IDIuODA1IDAgMDEtLjk1OC0zLjg0M0EyLjc4NCAyLjc4NCAwIDAxNy41MDEgMS44Yy45OTIuMDAyIDEuODg4LjUxIDIuMzk4IDEuMzU4YTIuODA0IDIuODA0IDAgMDEtLjk1OCAzLjg0M2wtMS40NC44NjUtMS40NDEtLjg2NXpNMTMgMTRIMnYtMS42NjJsNS41MDEtMy4zMDVMMTMgMTIuMzM3VjE0eiIvPjwvc3ZnPg=="></img>
-            <IoStarOutline className="hidden 2xl:block lg:block" />
-            <IoBagOutline className="sm:mr-4 md:mr-4" />
+            <img className="h-4 hidden  lg:block" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTE2IDB2MTZIMFYweiIvPjxwYXRoIGQ9Ik04LjQ3MiA4LjQ1bC45ODUtLjU5MmEzLjc3IDMuNzcgMCAwMDEuNzI5LTIuMzM4IDMuNzcyIDMuNzcyIDAgMDAtLjQzLTIuODc2QTMuNzcgMy43NyAwIDAwNy41MDIuOEg3LjVhMy43NzMgMy43NzMgMCAwMC0zLjI1NSAxLjg0NCAzLjgwNCAzLjgwNCAwIDAwMS4zIDUuMjE0bC45ODUuNTkyTDEgMTEuNzcyVjE1aDEzdi0zLjIyOUw4LjQ3MiA4LjQ1ek02LjA2IDcuMDAxYTIuODA1IDIuODA1IDAgMDEtLjk1OC0zLjg0M0EyLjc4NCAyLjc4NCAwIDAxNy41MDEgMS44Yy45OTIuMDAyIDEuODg4LjUxIDIuMzk4IDEuMzU4YTIuODA0IDIuODA0IDAgMDEtLjk1OCAzLjg0M2wtMS40NC44NjUtMS40NDEtLjg2NXpNMTMgMTRIMnYtMS42NjJsNS41MDEtMy4zMDVMMTMgMTIuMzM3VjE0eiIvPjwvc3ZnPg=="></img>
+            <IoStarOutline className="hidden  lg:block" />
+            <IoBagOutline className="sm:mr-4" />
           </div>
         </div>
-        <div className="w-full h-1 bg-black top-28 lg:h-2"></div>
+        <div className="w-full h-1 bg-black top-26 lg:h-2"></div>
       </div>
       <div className="hidden lg:flex lg:flex-row lg:justify-center">
         <div className=" lg:flex-none flex gap-x-4 sm:pb-3  ">
