@@ -1,5 +1,6 @@
-import UkFlag from "./Ukflag.svg";
-import down from "./down.svg";
+import { useState } from "react";
+import UkFlag from "../assets/Ukflag.svg";
+import down from "../assets/down.svg";
 
 export default function SideBarDisplay({ sideBar, setSideBar }) {
   const titles = [
