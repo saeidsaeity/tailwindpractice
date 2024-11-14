@@ -13,8 +13,13 @@ export default {
         '1/40':'2.5vh',
         '1/30':'3vh'
       },
+      fontFamily: {
+       gothic: ['SackersGothicStd', 'sans-serif'],
+       georgia: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+       swansea:['Swansea','Georgia']
+      },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar'),],
 }
 

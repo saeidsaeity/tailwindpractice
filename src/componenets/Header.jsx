@@ -25,7 +25,7 @@ export default function Header() {
   ];
 
   return (
-    <div>
+    <>
       {sideBar === true ? (
         <SideBarDisplay sideBar={sideBar} setSideBar={setSideBar} />
       ) : null}
@@ -39,8 +39,8 @@ export default function Header() {
         </h1>
       </div>
 
-      <div className=" w-full  sticky top-0">
-        <div className="w-full flex flex-row py-3 lg:py-5  bg-white  ">
+      <div className=" w-full  sticky top-0 z-50">
+        <div className="w-full flex flex-row py-3 lg:py-5  bg-white ">
           <div className="basis-1/4  flex items-center  gap-x-4  pl-3 ">
             <button
               onClick={() => {
@@ -95,6 +95,6 @@ export default function Header() {
           })}
         </div>
       </div>
-    </div>
+    </>
   );
 }

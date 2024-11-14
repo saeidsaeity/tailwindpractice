@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'SackersGothicStd';
+    src: url('./fonts/GothicStdHeavy.woff2') format('woff2'), 
+         url('./fonts/GothicStdHeavy.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'swansea';
+    src: url('/fonts/Swansea.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
