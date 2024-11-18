@@ -1,23 +1,21 @@
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { CiMenuBurger } from "react-icons/ci";
-import { IoStarOutline } from "react-icons/io5";
-import { IoIosSearch } from "react-icons/io";
-import { IoBagOutline } from "react-icons/io5";
+import { useState, useEffect, useCallback } from "react";
 import homepageimage from "./assets/homepageimage.jpg";
 import homepageimage2 from "./assets/homepageimage2.jpg";
-
 import "./App.css";
-import UkFlag from "./assets/Ukflag.svg";
-import down from "./assets/down.svg";
 import { MdAccountCircle } from "react-icons/md";
-import SideBarDisplay from "./componenets/SideBarDisplay";
-import logo from "./assets/logo.svg";
 import Header from "./componenets/Header";
+import useEmblaCarousel from "embla-carousel-react";
+import Footer from "./componenets/Footer";
 function App() {
-  const [showRibbon, setShowRibbon] = useState(true);
-
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [progress, setProgess] = useState(0);
+  const progressBar = useCallback((emblaApi) => {
+    setProgess(Math.ceil(emblaApi.scrollProgress() * 100));
+    console.log(emblaApi.scrollProgress() * 100);
+  }, []);
+  useEffect(() => {
+    if (emblaApi) emblaApi.on("slidesInView", progressBar);
+  }, [emblaApi, progressBar]);
   return (
     <div>
       <Header />
@@ -51,56 +49,81 @@ function App() {
           </button>
         </div>
       </div>
+
       <div className="text-center mt-10 overflow-x-auto">
         <h2 className="text-lg font-gothic">WHAT'S NEW TODAY</h2>
         <h3 className="my-5 text-7xl font-georgia">744</h3>
         <p className="font-georgia ">Discover what just landed at MR PORTER</p>
       </div>
-      <div className="gap-x-1 mx-5 my-10 flex overflow-hidden sm:gap-x-3 overflow-x-auto">
-        <div className="flex-shrink-0">
-          <img
-            className=" h-[23vh] sm:h-[22vh]"
-            src="https://www.mrporter.com/variants/images/1647597356892903/in/w300_a3-4_ccrop.jpg"
-          />
-          <p className="text-center font-georgia text-sm mt-1">
-            BOTTEGA VENETA
-          </p>
-        </div>
-        <div className="flex-shrink-0">
-          <img
-            className="h-[23vh] sm:h-[22vh]"
-            src="https://www.mrporter.com/variants/images/1647597356873413/in/w300_a3-4_ccrop.jpg"
-          />
-          <p className="text-center font-georgia text-sm mt-1">
-            BOTTEGA VENETA
-          </p>
-        </div>
-        <div className="flex-shrink-0">
-          <img
-            className="h-[23vh] sm:h-[22vh]"
-            src="https://www.mrporter.com/variants/images/1647597356892911/in/w300_a3-4_ccrop.jpg"
-          />
-          <p className="text-center font-georgia text-sm mt-1">
-            BOTTEGA VENETA
-          </p>
-        </div>
-        <div className="hidden sm:flex-shrink-0 sm:block">
-          <img
-            className="h-[23vh] sm:h-[22vh]"
-            src="https://www.mrporter.com/variants/images/1647597356892895/in/w300_a3-4_ccrop.jpg"
-          />
-          <p className="text-center font-georgia text-sm mt-1">
-            BOTTEGA VENETA
-          </p>
+
+      <div
+        className=" mx-5 my-10 flex overflow-hidden sm:gap-x-3 "
+        ref={emblaRef}
+      >
+        <div className="flex gap-x-1">
+          <div className="flex-shrink-0 embla__slide ">
+            <img
+              className=" h-[25vh]   sm:h-[22vh]"
+              src="https://www.mrporter.com/variants/images/1647597356892903/in/w300_a3-4_ccrop.jpg"
+            />
+            <p className="text-center font-georgia text-sm mt-1">
+              BOTTEGA VENETA
+            </p>
+          </div>
+          <div className="flex-shrink-0 embla__slide">
+            <img
+              className="h-[25vh] sm:h-[22vh]"
+              src="https://www.mrporter.com/variants/images/1647597356873413/in/w300_a3-4_ccrop.jpg"
+            />
+            <p className="text-center font-georgia text-sm mt-1">
+              BOTTEGA VENETA
+            </p>
+          </div>
+          <div className="flex-shrink-0 embla__slide">
+            <img
+              className="h-[25vh] sm:h-[22vh]"
+              src="https://www.mrporter.com/variants/images/1647597356892911/in/w300_a3-4_ccrop.jpg"
+            />
+            <p className="text-center font-georgia text-sm mt-1">
+              BOTTEGA VENETA
+            </p>
+          </div>
+          <div className="sm:flex-shrink-0 sm:block embla__slide">
+            <img
+              className="h-[25vh] sm:h-[22vh]"
+              src="https://www.mrporter.com/variants/images/1647597356892895/in/w300_a3-4_ccrop.jpg"
+            />
+            <p className="text-center font-georgia text-sm mt-1">
+              BOTTEGA VENETA
+            </p>
+          </div>
         </div>
       </div>
-     
+
       <div className="flex">
         <div className="mx-auto flex">
-          <hr className=" bg-black h-1 w-7 mb-8" />
-          <hr className="bg-gray-300 h-1 w-14" />
+          <div className="bg-gray-300 h-1 w-20 mb-8">
+            {" "}
+            <div
+              className={` bg-black h-1 mb-8`}
+              style={{
+                width: "35%",
+                marginLeft: `${
+                  0 < progress && progress <= 65
+                    ? progress
+                    : progress >65?65
+                    : progress<0?0
+                    :null
+
+                }%`,
+              }}
+            >
+              {" "}
+            </div>{" "}
+          </div>
         </div>
       </div>
+
       <div className="w-full flex">
         <button className="bg-black rounded-sm text-white w-7/12  sm:w-[37vw] py-3 sm:py-3 mx-auto mb-16 font-georgia text-sm">
           Shop now
@@ -202,21 +225,29 @@ function App() {
       </div>
       <hr className="w-[90vw] bg-gray-950 mb-10 mx-auto mt-16"></hr>
 
-      <img className="w-[90vw] mx-auto mb-10 " src="https://www.mrporter.com/content/images/cms/ycm/resource/blob/25086696/c519a0b7d36c249f092cc4f937afb1a4/5-4-jpg-1--data.jpg/w800_q80.jpg" />
+      <img
+        className="w-[90vw] mx-auto mb-10 "
+        src="https://www.mrporter.com/content/images/cms/ycm/resource/blob/25086696/c519a0b7d36c249f092cc4f937afb1a4/5-4-jpg-1--data.jpg/w800_q80.jpg"
+      />
       <div className="w-[90vw] mx-auto ">
-      <h4 className="font-gothic text-xs">THE JOURNAL</h4>
-      <h3 className="text-[1.9rem] leading-9  text-left font-georgia pr-[15%]">A Guide To Every Coat You’ll Need This Winter</h3>
-      <p className="font-georgia text-sm mt-1">From overcoats and peacoats to shearling and down jackets or puffers – what you need to know about outerwear this season. Read more in The Journal </p>
-      <p className="underlinetext-sm font-georgia text-sm mt-3 underline mb-20">
+        <h4 className="font-gothic text-xs">THE JOURNAL</h4>
+        <h3 className="text-[1.9rem] leading-9  text-left font-georgia pr-[15%]">
+          A Guide To Every Coat You’ll Need This Winter
+        </h3>
+        <p className="font-georgia text-sm mt-1">
+          From overcoats and peacoats to shearling and down jackets or puffers –
+          what you need to know about outerwear this season. Read more in The
+          Journal{" "}
+        </p>
+        <p className="underlinetext-sm font-georgia text-sm mt-3 underline mb-20">
           Read more
         </p>
       </div>
       <hr className="w-[90vw] bg-gray-950 mb-10 mx-auto mt-16"></hr>
       <div className="w-[90vw] mx-auto">
-
-      <h2 className="font-gothic text-xs mb-10">MORE STORIES</h2>
+        <h2 className="font-gothic text-xs mb-10">MORE STORIES</h2>
       </div>
-      <div className="gap-x-1 mx-5 my-10 flex overflow-hidden sm:gap-x-3">
+      <div className="gap-x-1 mx-5 my-10 mb-20 flex overflow-hidden sm:gap-x-3">
         <div className="flex-shrink-0">
           <img
             className=" h-[23vh] sm:h-[22vh]"
@@ -226,7 +257,7 @@ function App() {
             THE SNEAKER DROP
           </p>
           <p className="w-[35vw] text-sm font-georgia mt-1">
-          New shoes from adidas Originals and New...
+            New shoes from adidas Originals and New...
           </p>
         </div>
         <div className="flex-shrink-0">
@@ -238,7 +269,7 @@ function App() {
             BEST DRESSED
           </p>
           <p className="w-[35vw] text-sm font-georgia mt-1">
-          Our lineup of the men who wore it well this...
+            Our lineup of the men who wore it well this...
           </p>
         </div>
         <div className="flex-shrink-0">
@@ -250,7 +281,7 @@ function App() {
             THE GIFT GUIDE
           </p>
           <p className="w-[35vw] text-sm font-georgia mt-1">
-          What gives? Only everything they coul
+            What gives? Only everything they coul
           </p>
         </div>
         <div className="hidden sm:flex-shrink-0 sm:block">
@@ -263,7 +294,7 @@ function App() {
           </p>
         </div>
       </div>
-
+      <Footer/>
     </div>
   );
 }
