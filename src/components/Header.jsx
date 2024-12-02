@@ -30,7 +30,7 @@ export default function Header() {
         <SideBarDisplay sideBar={sideBar} setSideBar={setSideBar} />
       ) : null}
 
-      <div className=" w-full bg-customGrey   flex  justify-center items-center lg:justify-between px-[7vw]">
+      <div className=" w-full bg-customGrey   flex  justify-center items-center lg:justify-between ">
         <h1 className="text-white font-serif georgia font-normal py-5 lg:py-1 flex text-xs  lg:text-sm  ">
           Guess what's just landed? Shop the latest arrivals now!
         </h1>
